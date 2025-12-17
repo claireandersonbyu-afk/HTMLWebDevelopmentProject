@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Anderson Web Portfolio</title>
+
+
+   <link rel="stylesheet" href="Stylesheets/style.css">
+
+
+
+
+   <style>
+       /* Tab Navigation Styles */
+       nav {
+           background-color: #ffffff;
+           border-bottom: 1px solid #cccccc;
+       }
+
+
+
+
+       nav ul {
+           list-style: none;
+           padding: 0;
+           margin: 0;
+           display: flex;
+           justify-content: center;
+       }
+
+
+
+
+       nav ul li a {
+           display: block;
+           padding: 18px 30px;
+           text-decoration: none;
+           color: var(--color-primary);
+           font-weight: bold;
+           font-size: 1.1em;
+           transition: background-color 0.3s, color 0.3s;
+       }
+
+
+
+
+       nav ul li a:hover {
+           background-color: var(--color-secondary);
+       }
+
+
+
+
+       /* Active Tab Styling */
+       nav ul li a.active {
+           color: var(--color-primary);
+           border-bottom: 3px solid var(--color-primary);
+           background-color: #f9f9f9;
+       }
+
+
+
+
+       .content-section.active {
+           display: block;
+       }
+
+
+
+
+
+
+
+
+       /* --- CYOA Game Styling (CORE CHANGES HERE) --- */
+       #cyoa-section {
+           background-color: #f5f5f5;
+           padding: 20px;
+           border-radius: 5px;
+       }
+
+
+
+
+       .story-page {
+           padding: 15px 0;
+           border-bottom: 1px dashed #cccccc;
+           margin-bottom: 20px;
+       }
+
+
+
+
+       .story-page h2 {
+           color: var(--color-primary);
+           font-size: 1.5em;
+           margin-top: 0;
+           margin-bottom: 15px;
+       }
+
+
+
+
+       /* By default, hide ALL story pages except the 'start' page. */
+       #cyoa-story>div {
+           display: none;
+       }
+
+
+
+
+       /* The core trick: Use the :target pseudo-class to show the selected page. */
+       /* When a link is clicked, the URL hash changes, targeting the new ID. */
+       #cyoa-story div:target {
+           display: block;
+       }
+
+
+       /* Crucial: Always show the starting page when no hash is present (or the wrong one). */
+       #cyoa-story #start {
+           display: block;
+       }
+
+
+       /* Hide the start page once a choice is made (i.e., when a hash is set) */
+       #cyoa-story:target #start {
+           display: none;
+       }
+
+
+
+
+       .choices {
+           margin-top: 20px;
+       }
+
+
+
+
+       .choices a {
+           display: inline-block;
+           padding: 10px 15px;
+           margin-right: 15px;
+           background-color: var(--color-accent);
+           /* Gold button */
+           color: var(--color-primary);
+           /* Navy text */
+           text-decoration: none;
+           border-radius: 5px;
+           font-weight: bold;
+           transition: background-color 0.2s;
+       }
+
+
+
+
+       .choices a:hover {
+           background-color: #e6c500;
+       }
+   </style>
+</head>
+
+
+<body>
+
+
+
+
+   <div class="main-container">
+
+
+       <header>
+           <h1>Claire Anderson</h1>
+           <p>
+               <a href="https://www.linkedin.com/in/claire-anderson-1aa53538b/" style="color:#dce9f5fb;">www.linkedin.com/in/claire-anderson-1aa53538b</a>
+           </p>
+       </header>
+
+
+
+
+       <nav>
+           <ul>
+               <li><a href="#" class="tab-link active" data-tab="about-me">Resume</a></li>
+               <li><a href="#" class="tab-link" data-tab="cyoa">Interactive Story: The Scroll</a></li>
+               <li><a href="scratch_page_writing.html">Writing: My Passion</a></li>
+           </ul>
+       </nav>
+
+
+
+
+       <main>
+
+
+           <section id="about-me" class="content-section active">
+               <div class="resume-content">
+                   <h2>Academic Background</h2>
+
+
+                   <h3>Pre-Business Major | Brigham Young University</h3>
+                   <p>Minors in French and Creative Writing</p>
+                   <p><em>Expected Graduation 2028, GPA: 3.9/4.0</em></p>
+
+
+                   <h2>Professional Experience</h2>
+                   <div class="resume-item">
+                       <h3>Buildings Operations Custodian | Missionary Training Center</h3>
+                       <p><em>2025 – Present</em></p>
+                       <ul>
+                           <li>Performed custodial duties to upkeep clean and habitable conditions for a six floor
+                               classroom teaching building.</li>
+                           <li>Identified repair needs and major maintenance concerns through weekly tasks and duties.
+                           </li>
+                       </ul>
+                   </div>
+
+
+
+
+                   <div class="resume-item">
+                       <h3>Lifeguard & Water Safety Instructor | Pima County Parks & Recreation</h3>
+                       <p><em>2021 – 2024</em></p>
+                       <ul>
+                           <li>Developed, taught, and adapted weely swim lessons for children and youth from 3-15 years
+                               old.</li>
+                           <li>Monitored safety of guests in and around swimming pool and maintained security of pool
+                               facilities.</li>
+                       </ul>
+                   </div>
+
+
+
+
+                   <h2>Volunteer Experience</h2>
+                   <div class="resume-item">
+                       <h3>Missionary | France Paris Mission, The Church of Jesus Christ of Latter-day Saints</h3>
+                       <p><em>2024 – 2025</em></p>
+                       <ul>
+                           <li>Proselytized and served among the people of France.</li>
+                           <li>Led groups of other missionaries to achieve regional and mission goals.</li>
+                       </ul>
+                   </div>
+
+
+
+
+                   <h2>Core Competencies</h2>
+                   <p><strong>Technical:</strong> Microsoft Word, Microsoft Excel, VBA, SQL</p>
+                   <p><strong>Language:</strong> Advanced French</p>
+                   <p><strong>Interpersonal:</strong> Teamwork, Communication, Leadership</p>
+
+
+
+
+                   <h2>Awards</h2>
+                   <div class="resume-item">
+                       <ul>
+                           <li>Third Place, Freedom Expo Essay Scholarship</li>
+                           <li>Platinum Award, The National French Contest (Le Grand Concours)</li>
+                           <li>Commended Student, National Merit Scholarship Corporation</li>
+                           <li>AP Scholar with Distinction</li>
+                       </ul>
+                   </div>
+               </div>
+           </section>
+
+
+
+
+           <section id="cyoa" class="content-section">
+               <div id="cyoa-section">
+                   <h1>The Scholar's Scroll</h1>
+                   <p>An Interactive Story</p>
+                   <hr>
+
+
+                   <div id="cyoa-story">
+
+
+                       <div id="start" class="story-page">
+                           <h2>The Discovery</h2>
+                           <p>You are Elara, a dedicated linguistics student exploring the dusty archive of the Grand
+                               Library. Hidden behind a stack of brittle volumes, you discover a small, leather-bound
+                               scroll tied with faded blue ribbon. You feel a faint humming energy emanating from it.
+                           </p>
+                           <p>Do you untie the ribbon now, risking the scroll's fragility, or take it to the
+                               conservation lab first?</p>
+                           <div class="choices">
+                               <a href="#page-2a">Untie the Ribbon Now</a>
+                               <a href="#page-2b">Take it to the Lab</a>
+                           </div>
+                       </div>
+
+
+
+
+                       <div id="page-2a" class="story-page">
+                           <h2>A Swift Revelation</h2>
+                           <p>You carefully untie the ribbon. The moment the knot loosens, the scroll unfurls itself
+                               with a rush of ancient air, revealing a single, glowing symbol. The air hums violently,
+                               and you realize you've triggered something. A voice whispers in archaic French: *“Qui
+                               cherche la clé?”*</p>
+                           <p>Do you:</p>
+                           <div class="choices">
+                               <a href="#page-3a">Answer the Voice (in French)</a>
+                               <a href="#end-a">Run for Help</a>
+                               <a href="#page-4a">Check the edges for hidden inscriptions</a>
+                           </div>
+                       </div>
+
+
+
+
+                       <div id="page-2b" class="story-page">
+                           <h2>The Official Procedure</h2>
+                           <p>You place the scroll in a protective box and take it to the conservation lab. Dr. Dubois
+                               examines it with awe and takes custody of the scroll, promising to contact you when they
+                               have more information. You wait anxiously for days.</p>
+                           <p>You continue your normal studies, but one morning, a coded email arrives from an unknown
+                               sender. The subject is "The Scroll." Do you:</p>
+                           <div class="choices">
+                               <a href="#page-3b">Open the Coded Email</a>
+                               <a href="#end-b">Report the Email</a>
+                               <a href="#page-4b">Secretly try to get access to the scroll and photocopy it.</a>
+                           </div>
+                       </div>
+
+
+                       <div id="page-4a" class="story-page">
+                           <h2>The Hidden Marginalia</h2>
+                           <p>You focus your eyes, noticing faint, minute scratches along the parchment's edge, written
+                               in microscopic Latin. They are instructions for safely closing the scroll. As you
+                               perform the final step, the glowing symbol winks out, and the humming stops. The scroll
+                               is inert but safe.</p>
+                           <p>You have preserved the artifact! Do you take it home to translate the Latin, or report
+                               its safe status to the library?</p>
+                           <div class="choices">
+                               <a href="#end-c">Translate it privately</a>
+                               <a href="#end-b">Report its safe status to the library</a>
+                           </div>
+                       </div>
+
+
+                       <div id="page-4b" class="story-page">
+                           <h2>A Risky Duplication</h2>
+                           <p>You sneak into the lab late one night, managing to snap a few high-resolution photos of
+                               the scroll before realizing Dr. Dubois has returned to work late. You hide just as Dr.
+                               Dubois begins translating the central symbol—it means "Key."</p>
+                           <p>Do you try to sneak out immediately, or wait for Dr. Dubois to leave, hoping to hear
+                               more?</p>
+                           <div class="choices">
+                               <a href="#end-d">Sneak out immediately</a>
+                               <a href="#page-3b">Wait, and risk being discovered (Leads back to the 'intrigue'
+                                   path)</a>
+                           </div>
+                       </div>
+
+
+                       <div id="page-3a" class="story-page">
+                           <h2>The Path of Knowledge (Good Ending)</h2>
+                           <p>You confidently answer, *“C'est moi qui la cherche.”* The symbol dims, and a section of
+                               the library wall slides open, revealing a hidden, spiral staircase leading down. You
+                               have demonstrated intellectual courage and earned access to the library's deepest
+                               secrets.</p>
+                           <p><strong>— The End: The Scholar's Success —</strong></p>
+                           <div class="choices">
+                               <a href="#start">Play Again</a>
+                           </div>
+                       </div>
+
+
+
+
+                       <div id="page-3b" class="story-page">
+                           <h2>A New Complication</h2>
+                           <p>The email (or overheard translation) reveals that the scroll has attracted the attention
+                               of others. The document is sought by a mysterious group. You are now a reluctant
+                               participant in a web of intrigue that begins with a map of the city.</p>
+                           <p><strong>— The End: To Be Continued —</strong></p>
+                           <div class="choices">
+                               <a href="#start">Play Again</a>
+                           </div>
+                       </div>
+
+
+                       <div id="end-a" class="story-page">
+                           <h2>A Closed Door</h2>
+                           <p>You run down the hall, shouting for help. By the time Professor Albright arrives, the
+                               scroll is still, and the glowing symbol has vanished, leaving no trace. The secret of
+                               the scroll is lost, at least for now.</p>
+                           <p><strong>— The End: Missed Opportunity —</strong></p>
+                           <div class="choices">
+                               <a href="#start">Play Again</a>
+                           </div>
+                       </div>
+
+
+                       <div id="end-b" class="story-page">
+                           <h2>Safety First</h2>
+                           <p>You report the suspicious email or the scroll's safe status to Dr. Dubois/Security. They
+                               thank you for your diligence and the artifact remains safe, but its secrets remain
+                               locked away, under heavy protection.</p>
+                           <p><strong>— The End: Security Prevailed —</strong></p>
+                           <div class="choices">
+                               <a href="#start">Play Again</a>
+                           </div>
+                       </div>
+
+
+                       <div id="end-c" class="story-page">
+                           <h2>The Private Scholar</h2>
+                           <p>You smuggle the inert scroll home and spend the next year meticulously translating the
+                               Latin marginalia. You discover the scroll contains a secret history of the library's
+                               founders, a history they desperately wanted hidden. You have a profound secret, but no
+                               one believes you.</p>
+                           <p><strong>— The End: A Truth Untold —</strong></p>
+                           <div class="choices">
+                               <a href="#start">Play Again</a>
+                           </div>
+                       </div>
+
+
+                       <div id="end-d" class="story-page">
+                           <h2>A Narrow Escape</h2>
+                           <p>You sneak out of the conservation lab, your heart pounding. You have the photographs, but
+                               you don't know who else is looking for the "Key." You now have a difficult decision:
+                               publish the photos and risk the artifact, or keep them secret and use them to bargain
+                               for information.</p>
+                           <p><strong>— The End: A Difficult Choice Ahead —</strong></p>
+                           <div class="choices">
+                               <a href="#start">Play Again</a>
+                           </div>
+                       </div>
+
+
+
+
+                   </div>
+               </div>
+           </section>
+       </main>
+   </div>
+
+
+
+
+   <script>
+       // The original script for tab functionality is maintained.
+       document.addEventListener('DOMContentLoaded', () => {
+           const tabLinks = document.querySelectorAll('.tab-link');
+           const contentSections = document.querySelectorAll('.content-section');
+
+
+
+
+           tabLinks.forEach(link => {
+               link.addEventListener('click', (e) => {
+                   e.preventDefault();
+                   const targetTabId = e.target.dataset.tab;
+
+
+
+
+                   // Deactivate all links and sections
+                   tabLinks.forEach(l => l.classList.remove('active'));
+                   contentSections.forEach(s => s.classList.remove('active'));
+
+
+
+
+                   // Activate the clicked link and its corresponding section
+                   e.target.classList.add('active');
+                   document.getElementById(targetTabId).classList.add('active');
+
+
+                   // When activating the CYOA tab, ensure the story resets to the start
+                   if (targetTabId === 'cyoa') {
+                       // Reset the hash to '#start' to ensure the first story page shows
+                       window.location.hash = '#start';
+                       // Use a delayed scroll to ensure the hash change takes effect before scrolling
+                       setTimeout(() => {
+                           document.getElementById('cyoa-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                       }, 50);
+                   }
+               });
+           });
+
+
+           // Adding scroll behavior for internal CYOA links for better UX
+           document.querySelectorAll('#cyoa-story a[href^="#"]').forEach(link => {
+               link.addEventListener('click', (e) => {
+                   // The default behavior of the link updates the hash, which triggers the CSS :target.
+                   // We only need to manually scroll the content area back to the top for UX.
+                   // Use a small timeout to let the hash change and page update before scrolling
+                   setTimeout(() => {
+                       document.getElementById('cyoa-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                   }, 50);
+               });
+           });
+       });
+       // The sequential reveal is achieved purely by CSS :target selectors.
+   </script>
+
+
+
+
+</body>
+
+
+</html>
+
+
+

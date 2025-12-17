@@ -1,0 +1,162 @@
+/* ======================================= */
+/* 1. ROOT & GENERAL LAYOUT */
+/* ======================================= */
+
+
+/* Define the color palette and font scheme */
+:root {
+   --color-primary: #001F3F; /* Navy Blue */
+   --color-secondary: #F0F8FF; /* Light Blue/White Accent */
+   --color-text: #333333; /* Dark Grey Text */
+   --color-accent: #FFD700; /* Gold/Yellow Accent for highlights */
+   --color-header-name: #C0C0C0; /* Lighter, Silvery Color for the Name */
+   --font-family-serif: 'Georgia', 'Times New Roman', Times, serif;
+}
+
+
+/* General Layout Styles */
+body {
+   background-color: var(--color-secondary);
+   color: var(--color-text);
+   font-family: var(--font-family-serif);
+   padding: 40px;
+   line-height: 1.6;
+}
+
+
+.main-container {
+   max-width: 1000px;
+   margin: 40px auto;
+   background-color: white;
+   border: 1px solid #e0e0e0;
+   border-top: 5px solid var(--color-primary); /* Navy border top */
+   border-radius: 8px;
+   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+   overflow: hidden;
+}
+
+
+/* Header (The top bar) */
+header {
+   background-color: var(--color-primary);
+   color: white;
+   padding: 30px 40px;
+   text-align: center;
+}
+
+
+header h1 {
+   margin: 0 0 5px 0;
+   font-size: 3em;
+   letter-spacing: 1px;
+   color: var(--color-header-name);
+}
+
+
+header p {
+   margin: 0;
+   font-size: 1.1em;
+   font-style: italic;
+   opacity: 0.9;
+}
+
+
+
+
+/* ======================================= */
+/* 2. TAB HACK LOGIC (Radio Buttons) */
+/* ======================================= */
+
+
+/* Hide the actual radio buttons */
+.tab-controls input[type="radio"] {
+   display: none;
+}
+
+
+/* Tab Navigation Look */
+nav {
+   background-color: #ffffff;
+   border-bottom: 1px solid #cccccc;
+}
+
+
+.tab-controls {
+   display: flex;
+   justify-content: center;
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+
+.tab-label {
+   display: block;
+   padding: 18px 25px;
+   text-decoration: none;
+   color: var(--color-primary);
+   font-weight: bold;
+   font-size: 1.1em;
+   cursor: pointer;
+   transition: background-color 0.3s;
+}
+
+
+.tab-label:hover {
+   background-color: var(--color-secondary);
+}
+
+
+/* Active Tab Styling (using the :checked pseudo-class on the radio input) */
+.tab-controls input[type="radio"]:checked + .tab-label {
+   color: var(--color-primary);
+   border-bottom: 3px solid var(--color-primary);
+   background-color: #f9f9f9;
+}
+
+
+/* Hide all content sections by default */
+.content-section {
+   padding: 40px;
+   display: none;
+}
+
+
+/* Show the corresponding content section when its radio button is checked (using the general sibling selector ~) */
+#tab1:checked ~ main #about-me,
+#tab2:checked ~ main #cyoa,
+#tab3:checked ~ main #writing {
+   display: block;
+}
+
+
+
+
+/* ======================================= */
+/* 3. PORTFOLIO CONTENT STYLING */
+/* ======================================= */
+
+
+.resume-content h2 {
+   border-bottom: 2px solid var(--color-accent); /* Gold line separator */
+   padding-bottom: 8px;
+   margin-top: 35px;
+   margin-bottom: 15px;
+   color: var(--color-primary); /* Navy Blue heading */
+   font-size: 1.8em;
+}
+
+
+.resume-item {
+   margin-bottom: 25px;
+   border-left: 3px solid var(--color-primary);
+   padding-left: 15px;
+}
+.resume-item h3 { margin: 0; font-size: 1.3em; color: var(--color-text); font-weight: 700; }
+.resume-item p { margin: 3px 0 0 0; font-style: italic; font-size: 0.95em; }
+.resume-item ul { margin-top: 10px; padding-left: 20px; }
+
+
+
+
+
